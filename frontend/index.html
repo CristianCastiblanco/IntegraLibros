@@ -1,15 +1,68 @@
 <!DOCTYPE html>
-<HTML>
-  <head>
-    <title>IntegraLibros</title>
-  </head>
-  <body>
-    <div id="una capa">
-      <h1>Este es el contenedor Web del Subgrupo 8:</h1>
-      <p>Cristian David Escobar Cuervo.</p> 
-      <p>Gustavo Adolfo Flor Flor.</p>
-      <p>Luis Alberto Sena Gonzalez.</p>
-      <p>Cristian Camilo Castiblanco Montes.</p>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Cuenta</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+<nav class="bg-blue-600 p-4 text-white">
+  <div class="container mx-auto flex justify-between">
+    <a href="index.html" class="font-bold">IntegraLibros</a>
+    <div>
+      <a href="catalog.html" class="mx-2">Catálogo</a>
+      <a href="#" class="mx-2 font-bold">Mi Cuenta</a>
+      <a href="contact.html" class="mx-2">Contacto</a>
     </div>
-  </body>  
-</HTML>
+  </div>
+</nav>
+
+<!-- Contenido Principal -->
+<div class="container mx-auto p-6">
+  <div class="max-w-3xl mx-auto bg-white p-8 shadow-md rounded-lg">
+    <div class="flex justify-center mb-6">
+      <button id="btnRegister"
+              class="px-6 py-2 text-lg font-semibold rounded-l transition-colors duration-300
+           bg-gray-300 text-black hover:bg-blue-500 hover:text-white focus:outline-none">
+        Registro
+      </button>
+
+      <button id="btnLogin"
+              class="px-6 py-2 text-lg font-semibold rounded-r transition-colors duration-300
+           bg-gray-300 text-black hover:bg-blue-500 hover:text-white focus:outline-none">
+        Login
+      </button>
+    </div>
+
+    <!-- Sección de Registro -->
+    <div id="register" class="">
+      <h2 class="text-xl font-bold mb-4">Crear Cuenta</h2>
+      <input id="nameRegister" type="text" placeholder="Nombre" class="w-full p-2 border mb-2">
+      <input id="emailRegister" type="email" placeholder="Correo Electrónico" class="w-full p-2 border mb-2">
+      <input id="passwordRegister" type="password" placeholder="Contraseña" class="w-full p-2 border mb-2">
+      <button id="createAccount" class="w-full bg-red-500 text-white p-2 rounded">Crear Cuenta</button>
+    </div>
+
+    <!-- Sección de Login -->
+    <div id="login" class="hidden">
+      <h2 class="text-xl font-bold mb-4">Iniciar Sesión</h2>
+      <input id="emailLogin" type="email" placeholder="Correo Electrónico" class="w-full p-2 border mb-2">
+      <input id="passwordLogin" type="password" placeholder="Contraseña" class="w-full p-2 border mb-2">
+      <a href="#" class="text-blue-500 text-sm block mb-2">Olvidé mi contraseña</a>
+      <button id="loginS" class="w-full bg-red-500 text-white p-2 rounded">Iniciar Sesión</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2024 Biblioteca | Términos y Condiciones | Política de Privacidad</p>
+</footer>
+
+<!--<script type="module" src="script.js"></script>-->
+</body>
+</html>
