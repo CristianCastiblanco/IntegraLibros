@@ -7,5 +7,5 @@ app.get("/jenkins", (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log("servidor escuchando desde http://localhost:${port}");
+    console.log("servidor jenkins escuchando desde http://localhost:${port}");
 })
