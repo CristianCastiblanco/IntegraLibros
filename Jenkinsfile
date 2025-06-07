@@ -13,7 +13,7 @@ pipeline {
 
     stages['Ejecutar Pruebas'] {
         steps {
-            sh 'docker-compose run --rm web_jenkins npm test'
+            sh 'docker-compose run npm test'
         }
     }
 
