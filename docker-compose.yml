@@ -13,3 +13,21 @@ services:
       - "8081:80"
     depends_on:
       - backend
+  
+  jenkins:
+    container_name: ci_jenkins
+    image: jenkins/jenkins:alpine
+    user: root
+    ports:
+      - "8082:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    depends_on:
+      - frontend
+
+volumes:
+  jenkins_home:
