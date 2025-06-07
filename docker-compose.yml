@@ -10,33 +10,24 @@ services:
     build: ./frontend
     container_name: frontend 
     ports:
-      - "8081:8081"
+      - "8081:80"
     depends_on:
       - backend
   
-#   web_jenkins:
-#     build: ./jenkins
-#     container_name: web_jenkins  
-#     ports:
-#       - "5000:5000"
-#     depends_on:
-#       - frontend
-  
-#   jenkins:
-#     build: ./jenkins
-#     container_name: ci_jenkins
-#     image: jenkins/jenkins:lst
-#     user: root
-#     ports:
-#       - "8080:8080"
-#       - "50000:50000"
-#     volumes:
-#       - jenkins_home:/var/jenkins_home
-#       - /var/run/docker.sock:/var/run/docker.sock
-#     environment:
-#       - DOCKER_HOST=unix:///var/run/docker.sock
-#     depends_on:
-#       - frontend
+  jenkins:
+    container_name: ci_jenkins
+    image: jenkins/jenkins:alpine
+    user: root
+    ports:
+      - "8082:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    depends_on:
+      - frontend
 
-# volumes:
-#   jenkins_home:
+volumes:
+  jenkins_home:
