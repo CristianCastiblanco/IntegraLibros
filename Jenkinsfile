@@ -6,16 +6,24 @@ pipeline {
     }
 
     stages {
+
+        stage ('Clonar Repositorio'){
+            steps {
+                git branch: 'feature/*' , url: 'https://github.com/CristianCastiblanco/IntegraLibros.git'
+            }
+        }
+
         stage ('Construir Contenedores'){
             steps {
-                sh 'apt install docker-compose -y'
-                sh 'docker-compose build'
+                sh 'docker-compose up -d --build'
             }
         }
 
         stage ('Ejecutar Pruebas') {
             steps {
-                sh 'docker-compose run npm test'
+                dir('test') {
+                    sh 'node test.js'
+                }
             }
         }
 
