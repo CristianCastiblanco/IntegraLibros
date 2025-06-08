@@ -5,21 +5,23 @@ pipeline {
         DOCKER_HOST = 'unix:///var/run/docker.sock'
     }
 
-    stages['Construir Contenedores'] {
-        steps {
-            sh 'docker-compose build'
+    stages {
+        stage ('Construir Contenedores'){
+            steps {
+                sh 'docker-compose build'
+            }
         }
-    }
 
-    stages['Ejecutar Pruebas'] {
-        steps {
-            sh 'docker-compose run npm test'
+        stage ('Ejecutar Pruebas') {
+            steps {
+                sh 'docker-compose run npm test'
+            }
         }
-    }
 
-    stages['Desplegar'] {
-        steps {
-            sh 'docker-compose up -d'
+        stage ('Desplegar') {
+            steps {
+                sh 'docker-compose up -d'
+            }
         }
     }
 }
