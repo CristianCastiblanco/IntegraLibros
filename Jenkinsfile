@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage ('Construir Contenedores'){
             steps {
-                sh 'sudo apt install docker-compose -y'
+                sh 'apt install docker-compose -y'
                 sh 'docker-compose build'
             }
         }
