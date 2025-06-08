@@ -9,7 +9,7 @@ pipeline {
 
         stage ('Clonar Repositorio'){
             steps {
-                git branch: 'feature/*' , url: 'https://github.com/CristianCastiblanco/IntegraLibros.git'
+                git branch: 'feature/update_pipeline' , url: 'https://github.com/CristianCastiblanco/IntegraLibros.git'
             }
         }
 
