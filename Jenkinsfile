@@ -13,6 +13,12 @@ pipeline {
             }
         }
 
+        stage ('Construir Contenedores'){
+            steps {
+                sh 'docker-compose up -d --build'
+            }
+        }
+
         stage ('Ejecutar Pruebas') {
             steps {
                 dir('test') {
