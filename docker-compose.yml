@@ -2,20 +2,20 @@ version: "3.8"
 services:
   backend:
     build: ./backend
-    container_name: backend
+    container_name: backend_$CONTAINER_NAME_SUFFIX
     ports:
       - "3000:3000"
 
   frontend:
     build: ./frontend
-    container_name: frontend 
+    container_name: frontend_$CONTAINER_NAME_SUFFIX 
     ports:
       - "8081:80"
     depends_on:
-      - backend
+      - backend_$CONTAINER_NAME_SUFFIX
   
   jenkins:
-    container_name: ci_jenkins
+    container_name: ci_jenkins_$CONTAINER_NAME_SUFFIX
     image: jenkins/jenkins:jdk21
     user: root
     ports:
@@ -27,7 +27,7 @@ services:
     environment:
       - DOCKER_HOST=unix:///var/run/docker.sock
     depends_on:
-      - frontend
+      - frontend_$CONTAINER_NAME_SUFFIX
 
 volumes:
   jenkins_home:

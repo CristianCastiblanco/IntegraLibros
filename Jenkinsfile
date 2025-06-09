@@ -15,6 +15,8 @@ pipeline {
 
         stage ('Construir Contenedores'){
             steps {
+                sh '''RANDOM_NUMBER=$(shuf -i 1-10000 -n 1 | head -c 4)
+                export CONTAINER_NAME_SUFFIX=$RANDOM_NUMBER'''
                 sh 'docker-compose up -d --build'
             }
         }
@@ -25,8 +27,6 @@ pipeline {
                     sh 'node test.js'
                 }
             }
-        }
-
-        
+        }    
     }
 }
