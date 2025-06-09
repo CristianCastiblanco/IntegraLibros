@@ -16,7 +16,7 @@ services:
   
   jenkins:
     container_name: ci_jenkins
-    image: jenkins/jenkins:alpine
+    image: jenkins/jenkins:jdk21
     user: root
     ports:
       - "8082:8080"
