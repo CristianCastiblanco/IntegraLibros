@@ -13,14 +13,6 @@ pipeline {
             }
         }
 
-        stage ('Construir Contenedores'){
-            steps {
-                sh '''RANDOM_NUMBER=$(shuf -i 1-10000 -n 1 | head -c 4)
-                export CONTAINER_NAME_SUFFIX=$RANDOM_NUMBER
-                docker-compose up -d --build'''
-            }
-        }
-
         stage ('Ejecutar Pruebas') {
             steps {
                 dir('test') {
