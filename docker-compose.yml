@@ -11,3 +11,5 @@ services:
     container_name: frontend 
     ports:
       - "8081:80"
+    volumes:
+      - ./data:/usr/share/nginx/html/data

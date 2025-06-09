@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Online</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+<nav class="bg-blue-600 text-white p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-xl font-bold">Biblioteca</h1>
+    <ul class="flex space-x-4">
+      <li><a href="#" class="hover:underline">Inicio</a></li>
+      <li><a href="catalog.html" class="hover:underline">Catálogo</a></li>
+      <li><a href="#" class="hover:underline">Mi Cuenta</a></li>
+      <li><a href="contact.html" class="hover:underline">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="bg-gray-200 text-center py-20">
+  <h2 class="text-3xl font-bold">¡Encuentra y pide prestado tu próximo libro favorito!</h2>
+  <button class="bg-red-500 text-white px-6 py-2 mt-4 rounded hover:bg-red-700">
+    Explorar Libros
+  </button>
+</header>
+
+<!-- Libros Destacados -->
+<section class="py-10 container mx-auto">
+  <h3 class="text-2xl font-bold text-center mb-4">Libros Destacados</h3>
+  <div id="booksList" class="flex justify-center space-x-4"></div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2024 Biblioteca | <a href="#" class="underline">Términos y Condiciones</a></p>
+</footer>
+
+<script type="module" src="../scripts/home.js"></script>
+</body>
+</html>
