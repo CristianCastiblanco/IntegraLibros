@@ -12,7 +12,7 @@ services:
     ports:
       - "8081:80"
     depends_on:
-      - backend_$CONTAINER_NAME_SUFFIX
+      - backend
   
   jenkins:
     container_name: ci_jenkins_$CONTAINER_NAME_SUFFIX
@@ -27,7 +27,7 @@ services:
     environment:
       - DOCKER_HOST=unix:///var/run/docker.sock
     depends_on:
-      - frontend_$CONTAINER_NAME_SUFFIX
+      - frontend
 
 volumes:
   jenkins_home:
