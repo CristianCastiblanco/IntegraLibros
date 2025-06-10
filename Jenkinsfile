@@ -1,25 +1,24 @@
 pipeline {
     agent any
 
-    enviroments {
+    environment {
         DOCKER_HOST = 'unix:///var/run/docker.sock'
     }
 
-    stages['Construir Contenedores'] {
-        steps {
-            sh 'docker-compose build'
-        }
-    }
+    stages {
 
-    stages['Ejecutar Pruebas'] {
-        steps {
-            sh 'docker-compose run npm test'
+        stage ('Clonar Repositorio'){
+            steps {
+                git branch: 'feature/update_pipeline' , url: 'https://github.com/CristianCastiblanco/IntegraLibros.git'
+            }
         }
-    }
 
-    stages['Desplegar'] {
-        steps {
-            sh 'docker-compose up -d'
-        }
+        stage ('Ejecutar Pruebas') {
+            steps {
+                dir('test') {
+                    sh 'node test.js'
+                }
+            }
+        }    
     }
 }
