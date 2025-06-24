@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin - Libros</title>
+  <script src="admin.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-6 text-center">Panel de Administración de Libros</h1>
+
+  <form id="libroForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-6">
+    <input type="hidden" id="libroId">
+    <div class="mb-4">
+      <label for="nombre" class="block text-sm font-bold mb-2">Nombre del Libro</label>
+      <input type="text" id="nombre" class="shadow appearance-none border rounded w-full py-2 px-3">
+    </div>
+    <div class="mb-4">
+      <label for="categoria" class="block text-sm font-bold mb-2">Categoría</label>
+      <select id="categoria" class="shadow border rounded w-full py-2 px-3">
+        <option value="">Seleccione una categoría</option>
+      </select>
+    </div>
+    <div class="mb-4">
+      <label for="estado" class="block text-sm font-bold mb-2">Estado</label>
+      <select id="estado" class="shadow border rounded w-full py-2 px-3">
+        <option value="1">Disponible</option>
+        <option value="0">No Disponible</option>
+      </select>
+    </div>
+    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Guardar Libro
+    </button>
+  </form>
+
+  <h2 class="text-2xl font-semibold mb-4">Listado de Libros</h2>
+  <div id="tablaLibros" class="bg-white shadow-md rounded p-4"></div>
+</div>
+</body>
+</html>
