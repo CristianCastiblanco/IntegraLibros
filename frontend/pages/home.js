@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     const btnSearch = document.getElementById("btnSearch");
-    const loginS = document.getElementById("loginS");
 
     // Cambiar entre pestañas de Register/Login
     btnSearch.addEventListener("click", async() => {
