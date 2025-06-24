@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+const database = require("./database")
 
 // Configuración inicial
 const app = express();
@@ -23,29 +24,12 @@ app.use(cors({
 }))
 
 //Rutas
-app.get("/search", (req, res) => {
-    res.json([
-        {id:1,
-         categoria: "Ciencias Naturales",
-         nombre: "Fisica I",
-         estado: "Disponible"
-        },
-        {id:2,
-         categoria: "Ciencias Naturales",
-         nombre: "Fisica II",
-         estado: "No disponible"
-        },
-        {id:3,
-         categoria: "Matematicas",
-         nombre: "Algebra de Baldor",
-         estado: "Disponible"
-        },
-        {id:4,
-         categoria: "Ciencias Sociles",
-         nombre: "Atlas",
-         estado: "No disponible"
-        }
-    ])
+app.get("/search", async (req, res) => {
+    const connection = await database.getconnection();
+    const response = await connection.query("select * from LIBROS")
+    console.log(response)
+    
+    //res.json()
 })
 
 
